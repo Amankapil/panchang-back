@@ -12,7 +12,6 @@ exports.createBhaktiMarg = async (req, res) => {
       personaName,
       youtubeIframe,
       personaImage,
-      bannerImage,
     });
     await newEntry.save();
     res.status(201).json(newEntry);
