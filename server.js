@@ -4,7 +4,7 @@ const guruVachanRoutes = require("./routes/guruVachanRoutes");
 const bhaktiMargRoutes = require("./routes/bhaktiMargRoutes");
 const bannerRoutes = require("./routes/bannerRoutes");
 const cors = require("cors");
-
+const path = require("path");
 const app = express();
 
 // Connect to database
