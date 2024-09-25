@@ -4,7 +4,7 @@ const BhaktiMarg = require("../models/bhaktiMargModel");
 exports.createBhaktiMarg = async (req, res) => {
   const { personaName, youtubeIframe } = req.body;
   // const personaImage = req.file.filename;
-  const baseURL = "https://panchang-back.onrender.com/uploads/";
+  const baseURL = "https://panchang-back.onrender.com/public/";
   const personaImage = `${baseURL}${req.file.filename}`;
 
   try {
