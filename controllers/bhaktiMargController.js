@@ -3,8 +3,9 @@ const BhaktiMarg = require("../models/bhaktiMargModel");
 // Create a new Guru Vachan entry
 exports.createBhaktiMarg = async (req, res) => {
   const { personaName, youtubeIframe } = req.body;
-  const personaImage = req.file.filename;
-  const bannerImage = req.file.filename;
+  // const personaImage = req.file.filename;
+  const baseURL = "https://panchang-back.onrender.com/uploads/";
+  const personaImage = `${baseURL}${req.file.filename}`;
 
   try {
     const newEntry = new BhaktiMarg({

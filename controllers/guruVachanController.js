@@ -8,7 +8,9 @@ exports.createGuruVachan = async (req, res) => {
   }
 
   const { personaName, youtubeIframe } = req.body;
-  const personaImage = req.file.filename; // Should not be undefined if multer is working correctly
+  // const personaImage = req.file.filename; // Should not be undefined if multer is working correctly
+  const baseURL = "https://panchang-back.onrender.com/uploads/";
+  const personaImage = `${baseURL}${req.file.filename}`;
 
   try {
     const newEntry = new GuruVachan({

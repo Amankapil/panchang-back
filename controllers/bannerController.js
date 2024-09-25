@@ -2,7 +2,9 @@ const banner = require("../models/bannerModel");
 
 // Create a new Guru Vachan entry
 exports.createbanner = async (req, res) => {
-  const bannerImage = req.file.filename;
+  // const bannerImage = req.file.filename;
+  const baseURL = "https://panchang-back.onrender.com/uploads/";
+  const bannerImage = `${baseURL}${req.file.filename}`;
 
   try {
     const newEntry = new banner({
