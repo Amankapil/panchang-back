@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 // Replace `myDatabaseName` with the name of the database you want to use
-// const uri = "mongodb://localhost:27017/panchang";
-const uri =
-  "mongodb+srv://amankapil004:tM6mIC3CPrrlEBrR@cluster0.tu4xd.mongodb.net/banner?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://infoajaysharmatech:PJagFBG9ZcMnrKo1@cluster0.l9t0e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+// const uri =
+//   "mongodb+srv://amankapil004:tM6mIC3CPrrlEBrR@cluster0.tu4xd.mongodb.net/banner?retryWrites=true&w=majority&appName=Cluster0";
 
 const connectDB = async () => {
   try {

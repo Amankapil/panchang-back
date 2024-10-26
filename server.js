@@ -1,15 +1,30 @@
 const express = require("express");
 const connectDB = require("./config/db");
-const guruVachanRoutes = require("./routes/guruVachanRoutes");
-const bhaktiMargRoutes = require("./routes/bhaktiMargRoutes");
-const bannerRoutes = require("./routes/bannerRoutes");
-const panchangRoutes = require("./routes/panchangRoutes");
-const muhuratRoutes = require("./routes/muhuratRoutes");
+const blogRoutes = require("./routes/blogRoutes");
+
 const cors = require("cors");
 const path = require("path");
 const app = express();
 // Middleware
-app.use(cors());
+
+// app.use(cors());
+
+
+const corsOptions = {
+    origin: 'http://localhost:3030', // Exact URL of your frontend
+    credentials: true,               // Allow credentials (cookies, auth headers)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'], // Add any other custom headers
+  };
+  
+  app.use(cors(corsOptions));
+  
+  // Ensure preflight (OPTIONS) requests are also handled
+  app.options('*', cors(corsOptions)); 
+
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,12 +35,8 @@ connectDB();
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use("/api/guru-vachan", guruVachanRoutes);
-app.use("/api/bhakti-marg", bhaktiMargRoutes);
-app.use("/api/banner", bannerRoutes);
-app.use("/api/muhurat", muhuratRoutes);
-app.use("/api/panchang", panchangRoutes);
 
+app.use("/api/blogs", blogRoutes);
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5900;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
